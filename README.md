@@ -49,17 +49,24 @@ Built to the standards the portfolio itself argues for:
 - Every image carries alt text; decorative SVG is `aria-hidden`.
 - Visible `:focus-visible` rings; the lightbox moves focus in and returns it on close.
 - Full `prefers-reduced-motion` support — animation and smooth scrolling both stand down.
-- Light and dark palettes, both meeting WCAG AA for body text.
-- The site works with JavaScript disabled. The reveal animation is opt-in via a `js`
-  class on `<html>`, so nothing is ever hidden from a reader who has no scripting.
+- Light and dark palettes. Measured contrast ratios: body text 15.2:1 light and
+  14.8:1 dark; muted text 5.1:1 and 7.4:1; the terracotta accent 5.2:1 on the page
+  background, 4.6:1 on the tinted sections, 5.5:1 on cards. All above the 4.5:1 AA
+  threshold for normal text.
+- All content is readable with JavaScript disabled. The reveal animation is opt-in via a
+  `js` class on `<html>`, so nothing is ever hidden from a reader who has no scripting.
+  The only thing scripting adds is the click-to-enlarge on gallery images; the images
+  themselves still display.
 
 ## Local preview
 
-```bash
-python3 -m http.server 4402
-```
+Double-click `index.html`. It opens in a browser and behaves like the live site — no
+server, no commands. See [EDITING.md](EDITING.md) for editing without writing code.
 
-Then open <http://127.0.0.1:4402>.
+If you want a real local server (needed only if you add anything that requires HTTP
+rather than `file://`), `tools/sync_preview.sh` copies the site to
+`/private/tmp/ileana-portfolio-preview/site` and `.claude/launch.json` serves it on
+port 4322. The copy step exists because the preview sandbox cannot read `~/Desktop`.
 
 ## Deploying to GitHub Pages
 
