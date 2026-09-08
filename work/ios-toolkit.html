@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS Mobile Toolkit — Ileana Prince</title>
+<meta name="description" content="An iOS design reference covering spacing and safe areas, typography minimums, interactive element sizing, accessibility considerations, tooling, and a pre-build checklist.">
+<link rel="canonical" href="https://ileanaprince.com/work/ios-toolkit.html">
+<meta property="og:title" content="iOS Mobile Toolkit — Ileana Prince">
+<meta property="og:description" content="An iOS design reference covering spacing and safe areas, typography minimums, interactive element sizing, accessibility considerations, tooling, and a pre-build checklist.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ileanaprince.com/work/ios-toolkit.html">
+<meta property="og:image" content="https://ileanaprince.com/images/work/ios-toolkit/04.png">
+<meta name="theme-color" content="#FBF7F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1613" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../images/brand/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="../images/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<script>document.documentElement.classList.add("js");</script>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="../index.html">
+      <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M4 20c0-8 5-14 16-15 0 11-6 15-13 15H4Z" stroke-linejoin="round"/>
+        <path d="M4 20C7 15 11 11 17 8" stroke-linecap="round"/>
+      </svg>
+      Ileana Prince
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../index.html#work" aria-current="page">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#approach" class="nav-hide-sm">Approach</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+    <header class="case-hero">
+      <div class="wrap">
+        <span class="eyebrow">Design system &amp; documentation · December 2024</span>
+        <h1>A mobile toolkit for designing on iOS</h1>
+        <p class="lede">Most iOS accessibility failures aren't oversights — they're rules nobody wrote down before the build started. This is the reference I wanted: spacing, type, targets, and accessibility, in the order you actually need them.</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <figure class="case-cover" style="margin-block:0 clamp(2rem,5vw,4rem)">
+        <img src="../images/work/ios-toolkit/04.png" alt="Typography slide comparing San Francisco and New York typefaces with minimum size guidance." width="1400" height="780" fetchpriority="high">
+      </figure>
+
+      <dl class="case-meta">
+        <div><dt>Role</dt><dd>Designer &amp; author</dd></div>
+        <div><dt>Timeline</dt><dd>December 2024</dd></div>
+        <div><dt>Tools</dt><dd>Figma, Stark, Apple design resources</dd></div>
+        <div><dt>Deliverables</dt><dd>Guidelines document covering spacing, typography, interaction, accessibility, tooling, and a checklist</dd></div>
+      </dl>
+
+      <div class="case-layout">
+        <nav class="case-toc" aria-label="On this page">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#overview">Why write it down</a></li>
+            <li><a href="#spacing">Spacing, alignment, measurement</a></li>
+            <li><a href="#type">Typography</a></li>
+            <li><a href="#interaction">Interactive elements</a></li>
+            <li><a href="#accessibility">Accessibility considerations</a></li>
+          </ol>
+        </nav>
+
+        <div>
+          <section class="case-section" id="overview">
+            <h2>Why write it down</h2>
+            <div class="prose">
+            <p>Designing for iOS means working inside a system that already has opinions — about spacing, about type, about how big a thing has to be before a thumb can reliably hit it. Knowing those opinions early is the difference between a design that ships and a design that gets rebuilt. I put the ones that come up constantly into a single reference.</p>
+            </div>
+          </section>
+          <section class="case-section" id="spacing">
+            <h2>Spacing, alignment, measurement</h2>
+            <div class="prose">
+            <ul>
+              <li>Prefer graphical images over photographs — they hold detail at small sizes.</li>
+              <li>Use text only where it's essential to the design.</li>
+              <li>Design app icons at 1024 × 1024 and let the system scale down to 180 × 180 or 120 × 120, rather than designing each size by hand.</li>
+              <li>Use alignment deliberately: it's what creates organisation and visual hierarchy.</li>
+              <li>Notate guides and safe areas in the in-app designs, so nothing lands under a notch or a home indicator.</li>
+            </ul>
+          <div class="gallery">
+            <figure>
+              <button type="button" class="shot">
+                <img src="../images/work/ios-toolkit/03.png" alt="Spacing and measurement slide showing icon sizes and safe areas." loading="lazy">
+              </button>
+              <figcaption>Icon scaling from 512 px down to 16 px, and safe-area annotation.</figcaption>
+            </figure>
+          </div>
+            </div>
+          </section>
+          <section class="case-section" id="type">
+            <h2>Typography</h2>
+            <div class="prose">
+            <p>Apple ships two typefaces that carry weights, sizes, styles, and language coverage: San Francisco (sans serif) and New York (serif). The constraints that matter:</p>
+            <ul>
+              <li>An 11 pt minimum font size on iOS.</li>
+              <li>Avoid light weights — they collapse in bright light and on lower-contrast displays.</li>
+              <li>Test legibility in different contexts, not just against the artboard background.</li>
+            </ul>
+            </div>
+          </section>
+          <section class="case-section" id="interaction">
+            <h2>Interactive elements</h2>
+            <div class="prose">
+            <ul>
+              <li>Prefer the system-provided components — the switch, for instance — and follow the specific guidelines for anything custom.</li>
+              <li>Hit targets need to be at least 44 × 44 pt.</li>
+              <li>Keep button styling in a consistent hierarchy, so importance is legible at a glance.</li>
+              <li>Add a visual indicator alongside colour, so meaning survives for people who are colour blind.</li>
+            </ul>
+          <div class="gallery">
+            <figure>
+              <button type="button" class="shot">
+                <img src="../images/work/ios-toolkit/05.png" alt="Interactive elements slide with switch component, hit target sizing, and accessibility notes." loading="lazy">
+              </button>
+              <figcaption>Hit targets, button hierarchy, and indicators that don't rely on colour.</figcaption>
+            </figure>
+          </div>
+            </div>
+          </section>
+          <section class="case-section" id="accessibility">
+            <h2>Accessibility considerations</h2>
+            <div class="prose">
+            <p>Two principles carry most of it: <strong>simplicity</strong> — support familiar, consistent interactions so complex tasks stay simple — and <strong>perceivability</strong> — all content should be perceivable whether someone is using sight, hearing, or touch. Avoid complex gestures for common interactions, audit and test the app for accessibility rather than assuming, and take user feedback seriously.</p>
+            <p>Stark handles the mechanical part: contrast checking, typography and touch target scanning, a vision simulator, and annotation for alt text, focus order, headings, and landmarks. Apple also publishes templates for the foundations of an app, and Figma plugins for typography, buttons, and guides.</p>
+          <div class="gallery">
+            <figure>
+              <button type="button" class="shot">
+                <img src="../images/work/ios-toolkit/06.png" alt="Accessibility slide with simplicity and perceivability guidance alongside the Stark plugin panel." loading="lazy">
+              </button>
+              <figcaption>Accessibility principles, and testing with Stark.</figcaption>
+            </figure>
+            <figure>
+              <button type="button" class="shot">
+                <img src="../images/work/ios-toolkit/08.png" alt="Checklist slide covering measurements, alignment, spacing, hierarchy, type, targets, and usability." loading="lazy">
+              </button>
+              <figcaption>The pre-build checklist.</figcaption>
+            </figure>
+          </div>
+            </div>
+          </section>
+
+          <nav class="case-next" aria-label="More work">
+            <div>
+              <span class="next-label">Next project</span>
+              <a class="next-title" href="xbox.html">Exploring the Docs: Xbox</a>
+            </div>
+            <a class="btn btn--ghost" href="../index.html#work">All work</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p style="margin:0">© <span id="year">2026</span> Ileana Prince. Designed and built in Orlando.</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="mailto:ileanaprince@icloud.com">Email</a>
+      <a href="https://www.linkedin.com/in/ileanaprince/" rel="me noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>
