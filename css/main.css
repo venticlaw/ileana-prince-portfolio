@@ -464,6 +464,41 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
 .work-more svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease); }
 .work-card:hover .work-more svg { transform: translateX(4px); }
 
+/* Shorter pieces — a compact list so the deep case studies keep the visual weight. */
+.brief-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 1rem;
+}
+.brief-list a {
+  display: grid;
+  gap: 0.45rem;
+  height: 100%;
+  padding: 1.4rem 1.5rem;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.brief-list a:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+.brief-title { font-family: var(--font-display); font-size: var(--step-1); letter-spacing: -0.01em; }
+.brief-desc { color: var(--fg-soft); font-size: var(--step--1); line-height: 1.55; }
+.brief-tags {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
 /* ---------------------------------------------------------- approach --- */
 
 .steps {

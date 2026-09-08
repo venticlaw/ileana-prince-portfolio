@@ -2,14 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "site",
+      "name": "portfolio",
       "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server"
-      ],
-      "port": 4399,
-      "autoPort": true
+      "runtimeArgs": ["/private/tmp/ileana-portfolio-preview/serve.py"],
+      "port": 4322
     }
   ]
 }
