@@ -78,7 +78,8 @@
     var img = shot.querySelector('img');
     if (!img) return;
     lastFocus = shot;
-    bigImg.src = img.currentSrc || img.src;
+    // The grid holds a downscaled copy; the viewer loads the full-size original.
+    bigImg.src = img.dataset.full || img.currentSrc || img.src;
     bigImg.alt = img.alt || '';
     var caption = shot.closest('figure') && shot.closest('figure').querySelector('figcaption');
     bigCap.textContent = caption ? caption.textContent : (img.alt || '');
