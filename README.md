@@ -68,16 +68,29 @@ rather than `file://`), `tools/sync_preview.sh` copies the site to
 `/private/tmp/ileana-portfolio-preview/site` and `.claude/launch.json` serves it on
 port 4322. The copy step exists because the preview sandbox cannot read `~/Desktop`.
 
-## Deploying to GitHub Pages
+## Deployment
 
-1. Push this repository to GitHub.
-2. Settings → Pages → deploy from the `main` branch, root folder.
-3. Add a `CNAME` file containing `ileanaprince.com`.
-4. Point the domain's DNS at GitHub Pages (four `A` records for the apex, or a `CNAME`
-   record for `www`). **Do this last** — the moment DNS moves, the WordPress site is
-   no longer what visitors see.
+Live at **https://venticlaw.github.io/ileana-prince-portfolio/**, served by GitHub Pages
+from the `main` branch, root folder. Every push to `main` republishes within a minute or
+two. `.nojekyll` is present so the files are served as-is.
 
-`.nojekyll` is already present so GitHub serves the files as-is.
+`ileanaprince.com` is **not** pointed here yet — it still serves the WordPress site.
+Nothing visitors see has changed.
+
+### When it's time to switch the domain
+
+1. Add a `CNAME` file containing `ileanaprince.com`.
+2. Settings → Pages → Custom domain → `ileanaprince.com`, then tick Enforce HTTPS once
+   the certificate is issued.
+3. At the domain registrar, point the apex at GitHub Pages with four `A` records
+   (185.199.108–111.153) and a `CNAME` for `www` pointing at `venticlaw.github.io`.
+
+Step 3 is the irreversible one — the moment DNS moves, WordPress stops being the live
+site. Do it last, and only once Ileana has signed off on the content.
+
+The `canonical` and Open Graph URLs already say `ileanaprince.com`. That's deliberate: it
+keeps search engines treating the real domain as authoritative rather than indexing the
+github.io copy, and it needs no change on the day the domain moves.
 
 ## Known follow-ups
 
