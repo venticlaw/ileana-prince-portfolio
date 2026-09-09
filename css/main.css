@@ -10,11 +10,11 @@
   --paper:       #FFFFFF;
   --ink:         #16231C;
   --ink-soft:    #38493F;
-  --muted:       #5E6E63;
+  --muted:       #414D44;
   --line:        #DFD6C6;
-  --forest:      #24503F;
+  --forest:      #1E4436;
   --moss:        #4F7A5C;
-  --terracotta:  #A94E2A;
+  --terracotta:  #7A3317;
   --clay:        #E3B294;
 
   --accent:      var(--terracotta);
@@ -56,11 +56,11 @@
     --surface: #18231D;
     --fg:      #ECE6DA;
     --fg-soft: #C3CDC4;
-    --muted:   #9AA89E;
+    --muted:   #A6B4AA;
     --border:  #2A362F;
     --forest:  #7FB395;
     --moss:    #8FBDA0;
-    --accent:  #E2865B;
+    --accent:  #EE9A72;
     --accent-ink: #16231C;
   }
 }
@@ -71,11 +71,11 @@
   --surface: #18231D;
   --fg:      #ECE6DA;
   --fg-soft: #C3CDC4;
-  --muted:   #9AA89E;
+  --muted:   #A6B4AA;
   --border:  #2A362F;
   --forest:  #7FB395;
   --moss:    #8FBDA0;
-  --accent:  #E2865B;
+  --accent:  #EE9A72;
   --accent-ink: #16231C;
 }
 
@@ -115,6 +115,12 @@ a:hover { text-decoration-color: var(--accent); }
 img { max-width: 100%; height: auto; display: block; }
 
 hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
+
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 0.25em;
+  cursor: help;
+}
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
@@ -179,7 +185,13 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
   display: block;
 }
 
+/* WCAG 1.4.8 (AAA) applies to blocks of running text: line length under 80
+   characters, and paragraph spacing at least 1.5x the line spacing. Line
+   height is 1.65, so the gap below a paragraph is 2.5em. */
 .prose { max-width: var(--prose); }
+.prose p { margin-bottom: 2.5em; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul { margin-bottom: 2.5em; }
 .prose h3 { font-size: var(--step-2); margin-top: 2em; }
 /* A small label that is still a real heading — the level stays correct for
    screen readers, only the type size changes. */
@@ -235,6 +247,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
 }
 
 .wordmark {
+  min-height: 44px;
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
@@ -252,13 +265,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
   font-weight: 500;
   text-decoration: none;
   color: var(--fg-soft);
-  padding-block: 0.4rem;
   position: relative;
+  /* WCAG 2.5.5 (AAA): targets are at least 44x44 CSS px. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 0.15rem;
 }
 .nav a::after {
   content: "";
   position: absolute;
-  left: 0; bottom: 0;
+  left: 0; bottom: 10px;
   width: 100%; height: 1px;
   background: var(--accent);
   transform: scaleX(0);
@@ -267,6 +284,31 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
 }
 .nav a:hover::after, .nav a[aria-current]::after { transform: scaleX(1); }
 .nav a[aria-current] { color: var(--fg); }
+
+/* Colour-scheme control — WCAG 1.4.8 (AAA) asks that the reader be able to
+   choose, not just inherit the OS setting. */
+.theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-soft);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle svg { width: 18px; height: 18px; grid-area: 1 / 1; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
+}
 
 .nav-toggle { display: none; }
 
@@ -574,11 +616,11 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
   :root:not([data-theme="dark"]) .contact-panel { color: #F6F2E9; }
 }
 .contact-panel h2 { font-size: var(--step-4); max-width: 14ch; margin-bottom: 1rem; }
-.contact-panel p { max-width: 46ch; opacity: 0.86; }
+.contact-panel p { max-width: 46ch; }
 .contact-panel .btn { background: currentColor; border-color: currentColor; color: var(--forest); }
 .contact-panel .btn:hover { background: var(--clay); border-color: var(--clay); color: #16231C; }
-.contact-panel .btn--ghost { background: transparent; color: currentColor; border-color: currentColor; opacity: 0.8; }
-.contact-panel .btn--ghost:hover { opacity: 1; background: transparent; color: currentColor; border-color: currentColor; }
+.contact-panel .btn--ghost { background: transparent; color: currentColor; border-color: currentColor; }
+.contact-panel .btn--ghost:hover { background: transparent; color: currentColor; border-color: currentColor; }
 .contact-vine {
   position: absolute;
   right: -80px; bottom: -100px;
@@ -598,9 +640,35 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; align-items: center; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--accent); }
-.footer-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+.footer-links { display: flex; gap: 0.5rem 1.4rem; flex-wrap: wrap; }
+.footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
 
 /* ------------------------------------------------------- case studies --- */
+
+/* Breadcrumb — WCAG 2.4.8 (AAA), so a reader always knows where they are. */
+.breadcrumb { margin-bottom: 1.5rem; }
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+.breadcrumb li { display: flex; align-items: center; gap: 0.5rem; }
+.breadcrumb li + li::before { content: "/"; color: var(--border); }
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+.breadcrumb [aria-current] { color: var(--fg); }
 
 .case-hero { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2rem, 4vw, 3.5rem); }
 .case-hero h1 {
@@ -670,8 +738,15 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
   font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 0.9rem;
 }
-.case-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
-.case-toc a { text-decoration: none; color: var(--muted); }
+.case-toc ol { list-style: none; margin: 0; padding: 0; display: grid; }
+.case-toc a {
+  text-decoration: none;
+  color: var(--muted);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding-block: 0.2rem;
+}
 .case-toc a:hover, .case-toc a.is-active { color: var(--accent); }
 @media (max-width: 999px) { .case-toc { display: none; } }
 
@@ -829,6 +904,15 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--section) 0; }
    it back in. Without scripting — or if the observer never fires — nothing is lost. */
 .js .reveal { opacity: 0; transform: translateY(18px); }
 .js .reveal.is-visible { opacity: 1; transform: none; transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+
+/* Colours are transitioned, and a var()-driven colour can hold its old value
+   through a theme swap — which left buttons unreadable for a moment. Kill
+   transitions for the frame in which the theme changes. */
+:root.theme-changing *,
+:root.theme-changing *::before,
+:root.theme-changing *::after {
+  transition: none !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

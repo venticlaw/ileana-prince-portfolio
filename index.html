@@ -35,7 +35,7 @@
 </script>
 </head>
 <body>
-<script>document.documentElement.classList.add("js");</script>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -53,6 +53,11 @@
       <a href="#about">About</a>
       <a href="#approach" class="nav-hide-sm">Approach</a>
       <a href="#contact">Contact</a>
+    <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" title="Switch between light and dark">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke-linejoin="round"/></svg>
+        <span class="visually-hidden">Switch colour theme</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -77,7 +82,7 @@
         <div class="hero-meta">
           <span>B.S. User Experience Design, Full Sail</span>
           <span>Human-centered design</span>
-          <span>WCAG accessibility</span>
+          <span><abbr title="Web Content Accessibility Guidelines">WCAG</abbr> accessibility</span>
         </div>
         <div class="btn-row">
           <a class="btn" href="#work">
@@ -115,7 +120,7 @@
             <p class="work-kicker">Her own app concept for sustainable farming, taken end to end</p>
             <p>No client, no existing product — my own concept. I picked the problem, invented the app, and carried it the whole way. Four months from a stack of sketches to a tested prototype: field interviews with farmers, three personas spanning beginner to large-scale, and two rounds of feedback baked back into the design.</p>
             <ul class="tags">
-              <li>User research</li><li>Personas</li><li>IA</li><li>Hi-fi prototype</li><li>Usability testing</li>
+              <li>User research</li><li>Personas</li><li>Information architecture</li><li>Hi-fi prototype</li><li>Usability testing</li>
             </ul>
             <span class="work-more">Read the case study
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -129,11 +134,11 @@
           </div>
           <div class="work-body">
             <span class="work-index">02 — Concept project · 2024</span>
-            <h3><a href="work/ulta-beauty.html">Ulta Beauty — AR in-store wayfinding</a></h3>
+            <h3><a href="work/ulta-beauty.html">Ulta Beauty — <abbr title="Augmented reality">AR</abbr> in-store wayfinding</a></h3>
             <p class="work-kicker">Augmented reality wayfinding for a 1,380-store retailer</p>
             <p>Ulta's store layouts aren't consistent from location to location. This four-week project put directions to a product, similar-item fallbacks, and a call-an-associate button into the customer's own phone.</p>
             <ul class="tags">
-              <li>Augmented reality</li><li>AR wayfinding</li><li>Task flows</li><li>Style guide</li><li>Hi-fi mockups</li>
+              <li>Augmented reality</li><li><abbr title="Augmented reality">AR</abbr> wayfinding</li><li>Task flows</li><li>Style guide</li><li>Hi-fi mockups</li>
             </ul>
             <span class="work-more">Read the case study
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -178,7 +183,7 @@
           <a href="work/xbox.html">
             <span class="brief-title">Exploring the Docs: Xbox</span>
             <span class="brief-desc">Documentation read as an interface — walking the Xbox developer requirements as a first-time game developer would.</span>
-            <span class="brief-tags">Heuristic review · IA analysis</span>
+            <span class="brief-tags">Heuristic review · <abbr title="Information architecture">IA</abbr> analysis</span>
           </a>
         </li>
         <li>
@@ -267,7 +272,7 @@
             </div>
             <div class="skill-group">
               <h3>Research &amp; human factors</h3>
-              <p>Human-centered design, HCI/HMI principles, wireframing, prototyping, usability testing, A/B testing, WCAG accessibility, journey &amp; process mapping, interaction design</p>
+              <p>Human-centered design, <abbr title="Human-Computer Interaction">HCI</abbr>/HMI principles, wireframing, prototyping, usability testing, A/B testing, <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> accessibility, journey &amp; process mapping, interaction design</p>
             </div>
             <div class="skill-group">
               <h3>Technical familiarity</h3>
@@ -314,7 +319,7 @@
           <path d="M0 300C60 220 120 160 200 110S340 40 400 20" stroke-linecap="round"/>
           <path d="M120 160c-18-14-16-38 4-48 12 22 8 40-4 48ZM200 110c-20-10-24-34-6-46 16 18 16 38 6 46ZM290 60c-20-8-26-30-10-44 18 16 20 34 10 44Z" stroke-linejoin="round"/>
         </svg>
-        <span class="eyebrow" style="color:inherit;opacity:.7">Let's connect</span>
+        <span class="eyebrow" style="color:inherit">Let's connect</span>
         <h2>Tell me who you're designing for.</h2>
         <p style="margin-bottom:2rem">
           I'm looking for UX/UI and product design work where research actually reaches the

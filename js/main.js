@@ -20,6 +20,36 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  /* -------------------------------------------------- colour theme --- */
+  var toggle = document.getElementById('themeToggle');
+  if (toggle) {
+    var root = document.documentElement;
+    var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    var currentIsDark = function () {
+      var set = root.getAttribute('data-theme');
+      return set ? set === 'dark' : systemDark.matches;
+    };
+    var syncLabel = function () {
+      var dark = currentIsDark();
+      toggle.setAttribute('aria-pressed', String(dark));
+      toggle.setAttribute('aria-label', dark ? 'Switch to the light theme' : 'Switch to the dark theme');
+    };
+    syncLabel();
+    systemDark.addEventListener('change', syncLabel);
+    toggle.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.classList.add('theme-changing');
+      root.setAttribute('data-theme', next);
+      // Force a style flush, then re-enable transitions on the next frame.
+      void root.offsetWidth;
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { root.classList.remove('theme-changing'); });
+      });
+      try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+      syncLabel();
+    });
+  }
+
   /* ------------------------------------------------ reveal on scroll --- */
   var revealables = document.querySelectorAll('.reveal');
   if (revealables.length) {
@@ -63,6 +93,7 @@
 
   var dialog = document.createElement('dialog');
   dialog.className = 'lightbox';
+  dialog.setAttribute('aria-label', 'Enlarged image');
   dialog.innerHTML =
     '<button type="button" class="lightbox-close" aria-label="Close image viewer">&times;</button>' +
     '<figure style="margin:0;display:grid;justify-items:center">' +
@@ -93,12 +124,21 @@
 
   function close() {
     if (dialog.open && typeof dialog.close === 'function') dialog.close();
-    else dialog.removeAttribute('open');
+    else { dialog.removeAttribute('open'); restore(); }
+  }
+
+  // Esc closes a <dialog> natively without going through close(), so the
+  // cleanup and focus restore live on the close event where both paths meet.
+  function restore() {
     bigImg.removeAttribute('src');
-    if (lastFocus) lastFocus.focus();
+    if (lastFocus) { lastFocus.focus(); lastFocus = null; }
   }
 
   shots.forEach(function (shot) {
+    var thumb = shot.querySelector('img');
+    if (thumb && !shot.getAttribute('aria-label')) {
+      shot.setAttribute('aria-label', 'Enlarge image: ' + (thumb.alt || 'project visual'));
+    }
     shot.addEventListener('click', function () { open(shot); });
   });
 
@@ -107,5 +147,5 @@
     // Click on the backdrop area (the dialog element itself) closes it.
     if (event.target === dialog) close();
   });
-  dialog.addEventListener('close', function () { bigImg.removeAttribute('src'); });
+  dialog.addEventListener('close', restore);
 })();

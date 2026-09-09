@@ -19,9 +19,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/main.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://ileanaprince.com/"},
+    {"@type":"ListItem","position":2,"name":"Work","item":"https://ileanaprince.com/#work"},
+    {"@type":"ListItem","position":3,"name":"Ulta Beauty AR","item":"https://ileanaprince.com/work/ulta-beauty.html"}
+  ]
+}
+</script>
 </head>
 <body>
-<script>document.documentElement.classList.add("js");</script>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -35,10 +46,15 @@
       Ileana Prince
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="../index.html#work" aria-current="page">Work</a>
+      <a href="../index.html#work">Work</a>
       <a href="../index.html#about">About</a>
       <a href="../index.html#approach" class="nav-hide-sm">Approach</a>
       <a href="../index.html#contact">Contact</a>
+    <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" title="Switch between light and dark">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke-linejoin="round"/></svg>
+        <span class="visually-hidden">Switch colour theme</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -48,6 +64,13 @@
   <article>
     <header class="case-hero">
       <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#work">Work</a></li>
+          <li><span aria-current="page">Ulta Beauty <abbr title="Augmented reality">AR</abbr></span></li>
+        </ol>
+      </nav>
         <span class="eyebrow">Concept project · 2024 · Four weeks</span>
         <h1>Augmented reality wayfinding for Ulta Beauty</h1>
         <p class="lede">Ulta has around 1,380 US stores, and the layouts aren't consistent between them. This concept puts the store map in the customer's hand: directions to a product, a fallback when it's sold out, and a way to reach an associate without going to find one.</p>
@@ -71,7 +94,7 @@
           <h2>On this page</h2>
           <ol>
             <li><a href="#overview">The problem</a></li>
-            <li><a href="#research">Does AR actually fit this audience?</a></li>
+            <li><a href="#research">Does <abbr title="Augmented reality">AR</abbr> actually fit this audience?</a></li>
             <li><a href="#requirements">Three featured requirements</a></li>
             <li><a href="#design">Interface and style guide</a></li>
             <li><a href="#testing">What I'd test next</a></li>
@@ -93,10 +116,10 @@
             </div>
           </section>
           <section class="case-section" id="research">
-            <h2>Does AR actually fit this audience?</h2>
+            <h2>Does <abbr title="Augmented reality">AR</abbr> actually fit this audience?</h2>
             <div class="prose">
             <p>Ulta's core demographic is 16- to 25-year-olds, so the honest question was whether in-store technology would land or annoy. The research said land: nearly half of shoppers in that bracket already prefer shopping in person, 35 percent say in-store technology improves the experience, and 41 percent of younger millennials stay in touch with their favourite brands while shopping via in-store tracking and notifications. Twenty-eight percent of older millennials reported interest in VR technology while shopping in store.</p>
-            <p>Customers are split roughly half and half between preferring online and in-person. AR is the one format that gives them both at the same time — the immediacy of a shelf with the certainty of a search box.</p>
+            <p>Customers are split roughly half and half between preferring online and in-person. <abbr title="Augmented reality">AR</abbr> is the one format that gives them both at the same time — the immediacy of a shelf with the certainty of a search box.</p>
           <div class="gallery gallery--tall">
             <figure>
               <button type="button" class="shot">
@@ -198,7 +221,7 @@
                staff measure is whether the alert volume is workable on a Saturday. If
                answering product questions inline doesn't cut the number of calls, the
                feature costs the store more than it returns.</p>
-            <h3 class="label">The AR layer itself</h3>
+            <h3 class="label">The <abbr title="Augmented reality">AR</abbr> layer itself</h3>
             <p>Holding a phone up in a shop is a social act as much as a technical one.
                I'd want to know whether people actually raise the camera in a crowded aisle,
                or quietly fall back to the search box — and design for whichever answer
@@ -209,7 +232,7 @@
           <section class="case-section" id="outcome">
             <h2>Where it landed</h2>
             <div class="prose">
-            <p>The concept ends with a coherent set of high-fidelity screens and a defensible case for why AR belongs in this particular retailer: a demographic that is comfortable with in-store technology, a store count large enough that layout inconsistency is a real cost, and three features that each remove a specific reason a customer gives up and leaves.</p>
+            <p>The concept ends with a coherent set of high-fidelity screens and a defensible case for why <abbr title="Augmented reality">AR</abbr> belongs in this particular retailer: a demographic that is comfortable with in-store technology, a store count large enough that layout inconsistency is a real cost, and three features that each remove a specific reason a customer gives up and leaves.</p>
             </div>
           </section>
           <section class="case-section" id="files">

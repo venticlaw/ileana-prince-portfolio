@@ -19,9 +19,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/main.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://ileanaprince.com/"},
+    {"@type":"ListItem","position":2,"name":"Work","item":"https://ileanaprince.com/#work"},
+    {"@type":"ListItem","position":3,"name":"iOS Mobile Toolkit","item":"https://ileanaprince.com/work/ios-toolkit.html"}
+  ]
+}
+</script>
 </head>
 <body>
-<script>document.documentElement.classList.add("js");</script>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -35,10 +46,15 @@
       Ileana Prince
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="../index.html#work" aria-current="page">Work</a>
+      <a href="../index.html#work">Work</a>
       <a href="../index.html#about">About</a>
       <a href="../index.html#approach" class="nav-hide-sm">Approach</a>
       <a href="../index.html#contact">Contact</a>
+    <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" title="Switch between light and dark">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" stroke-linejoin="round"/></svg>
+        <span class="visually-hidden">Switch colour theme</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -48,6 +64,13 @@
   <article>
     <header class="case-hero">
       <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#work">Work</a></li>
+          <li><span aria-current="page">iOS Mobile Toolkit</span></li>
+        </ol>
+      </nav>
         <span class="eyebrow">Design system &amp; documentation · December 2024</span>
         <h1>A mobile toolkit for designing on iOS</h1>
         <p class="lede">Most iOS accessibility failures aren't oversights — they're rules nobody wrote down before the build started. This is the reference I wanted: spacing, type, targets, and accessibility, in the order you actually need them.</p>
