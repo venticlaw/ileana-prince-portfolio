@@ -12,8 +12,9 @@ Contact: ileanaprince@icloud.com · https://www.linkedin.com/in/ileanaprince/
   invented and built from scratch over four months in 2025. An AI-assisted app for
   sustainable farming. Desk research into existing agriculture apps and who actually
   farms in the US, three personas spanning beginner to large-scale, information
-  architecture built from nothing, a high-fidelity Figma prototype, and usability
-  testing with five participants across eight tasks, with two rounds of changes fed
+  architecture built from nothing, and a high-fidelity Figma prototype. A studio
+  project: the design went through cohort and instructor critique plus informal
+  feedback from five people walking eight tasks, and two rounds of changes were fed
   back into the design.
 - [Ulta Beauty AR](https://ileanaprince.com/work/ulta-beauty.html): A four-week 2024
   concept for augmented reality in-store wayfinding across a 1,380-store retailer.
