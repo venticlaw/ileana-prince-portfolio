@@ -27,8 +27,10 @@
   --border:      var(--line);
 
   /* Type */
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Helvetica throughout. "Helvetica Neue" first for the wider weight range on
+     macOS; Arial is the metric-compatible stand-in on Windows. */
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --step--1: clamp(0.82rem, 0.79rem + 0.14vw, 0.9rem);
   --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
@@ -94,16 +96,14 @@ body {
   font-size: var(--step-0);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  font-synthesis-weight: none;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
   margin: 0 0 0.5em;
-  font-variation-settings: "SOFT" 0, "WONK" 0;
 }
 
 p { margin: 0 0 1.1em; }
@@ -346,16 +346,14 @@ abbr[title] {
 
 .hero h1 {
   font-size: var(--step-5);
-  font-weight: 400;
-  line-height: 0.92;
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   margin: 0 0 1.5rem;
-  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 100;
 }
 .hero h1 em {
   font-style: italic;
   color: var(--forest);
-  font-variation-settings: "SOFT" 60, "WONK" 1;
 }
 .hero-lede {
   font-size: var(--step-1);
@@ -685,7 +683,6 @@ abbr[title] {
   font-size: var(--step-4);
   max-width: 18ch;
   margin-bottom: 1rem;
-  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 100;
 }
 .case-hero .lede {
   font-size: var(--step-1);
